@@ -3,6 +3,24 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
+import { BrowserRouter } from 'react-router-dom';
+import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+const theme = createMuiTheme({
+	palette: {
+		primary: {
+			main: '#333745'
+		},
+		secondary: {
+			main: '#C7EFCF'
+		}
+	}
+});
+ReactDOM.render((
+	<BrowserRouter>
+		<MuiThemeProvider theme={theme}>
+			<App />
+		</MuiThemeProvider>
+	</BrowserRouter>
+	), document.getElementById('root'));
 registerServiceWorker();

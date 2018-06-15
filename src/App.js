@@ -1,23 +1,32 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
-import NavbarComponent from './components/navbar.js';
+import React from 'react';
+import Navbar from './Navbar';
+import Main from './Main';
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-      <NavbarComponent />
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
-    );
-  }
+import { withStyles } from '@material-ui/core/styles';
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import Typography from '@material-ui/core/Typography';
+import Button from '@material-ui/core/Button';
+import IconButton from '@material-ui/core/IconButton';
+import MenuIcon from '@material-ui/icons/Menu';
+
+const styles = {
+    root: {
+        flexGrow: 1
+    },
+    flex: {
+        flex: 1
+    }
+};
+class App extends React.Component {
+    render(){
+        return(
+            <div className={styles.root}>
+                <Navbar />
+                <Main />
+            </div>
+        )
+    }
 }
 
 export default App;
