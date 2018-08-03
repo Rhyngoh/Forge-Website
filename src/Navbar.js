@@ -60,6 +60,7 @@ class Navbar extends React.Component {
 		            <Typography className={classes.flex} type="title" color="inherit">
 		            	<b>The Forge</b>
 		            </Typography>
+		            
 		            <Link to='/'>
 		            	<Button variant="contained" color="secondary" className={classes.button}>Home</Button>
 		            </Link>

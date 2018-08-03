@@ -1,31 +1,21 @@
-import React, { Component } from 'react';
+import React from 'react';
+import PieceAPI from './PieceAPI';
+import { Link } from 'react-router-dom';
 
-class Piece extends Component {
-	constructor(props){
-		super(props);
-		this.state = {
-			pieces: [
-				'Basic Pieces',
-				'Knight',
-				'Rook',
-				'Bishop',
-				'Queen'
-			]
-		}
+const Piece = (props) => {
+	const piece = PieceAPI.get(
+		props.match.params.name
+	)
+	if(!piece){
+		return <div>No piece was found</div>
 	}
-	render() {
-	    return (
-	        <div>
-		      	<ul>
-		      		{
-		      			this.state.pieces.map((piece) => {
-		      				return <li>{piece}</li>
-		      			})
-		      		}
-		      	</ul>
-	        </div>
-	    );
-	}
+	return(
+		<div>
+			<h1>{piece.name}</h1>
+			<h2>Description: {piece.description}</h2>
+			<Link to='/roster'>Back</Link>
+		</div>
+	)
 }
 
 export default Piece;

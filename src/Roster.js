@@ -3,15 +3,11 @@ import { Switch, Route } from 'react-router-dom';
 import FullRoster from './FullRoster';
 import Piece from './Piece';
 
-const Roster = () => {
-	return(
-		<Switch>
-			<h2>Tile Pieces</h2>
-			<Route exact path='/roster' component={FullRoster}/>
-			<Route path='/roster/:number' component={Piece}/>
-		</Switch>
-	)
-	
-}
+const Roster = () => (
+	<Switch>
+		<Route exact path='/roster' component={FullRoster}/>
+		<Route path='/roster/:name' component={Piece}/>
+	</Switch>
+)
 
 export default Roster;

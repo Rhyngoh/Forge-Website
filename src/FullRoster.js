@@ -1,31 +1,20 @@
-import React, { Component } from 'react';
+import React from 'react';
+import PieceAPI from './PieceAPI';
+import { Link } from 'react-router-dom';
 
-class FullRoster extends Component {
-	constructor(props){
-		super(props);
-		this.state = {
-			pieces: [
-				'Basic Pieces',
-				'Knight',
-				'Rook',
-				'Bishop',
-				'Queen'
-			]
-		}
-	}
-	render() {
-	    return (
-	        <div>
-		      	<ul>
-		      		{
-		      			this.state.pieces.map((piece) => {
-		      				return <li>{piece}</li>
-		      			})
-		      		}
-		      	</ul>
-	        </div>
-	    );
-	}
-}
+const FullRoster = () => (
+	<div>
+		<h2>Roster</h2>
+		<ul>
+			{
+				PieceAPI.all().map(p => (
+					<li key={p.link}>
+						<Link to={`/roster/${p.link}`}>{p.name}</Link>
+					</li>
+				))
+			}
+		</ul>
+	</div>
+)
 
 export default FullRoster;
