@@ -42,8 +42,8 @@ const styles = theme => ({
 	},
 	toolbar: theme.mixins.toolbar,
 	menuButton: {
-		marginLeft: -12,
-		marginRight: 5
+		marginLeft: '-12px',
+		marginRight: '5px'
 	}
 });
 

@@ -1,10 +1,33 @@
-body, html {
+html {
+  font-size: calc(12px + (14 - 12) * (100vw - 400px) / (800 - 400));
   margin: 0;
   padding: 0;
   overflow-x: hidden;
   font-family: 'Helvetica', 'Arial', san-serif;
+  background-color: white;
+}
+body {
+  background-color: #F2EEDD;
+  background-image: linear-gradient(to bottom, #7DE2FC 0%, #ffecd2 100%);
+  background-repeat: no-repeat;
 }
 
+main {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+h1 {
+  font-size: 3rem;
+  color: #a3a3c2;
+  text-shadow: 2px 2px #000;
+}
+h2 {
+  font-size: 2rem;
+  color: #a3a3c2;
+  text-shadow: 2px 2px #000;
+}
 .slick-slide {
   height: 80vh;
   background: #2196f3;
