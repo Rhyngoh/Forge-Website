@@ -8,6 +8,7 @@ import forgeIcon from './images/forgeAnvil.jpg';
 import DownloadContainer from './DownloadContainer';
 import Carousel from './Carousel';
 import ScrollAnimation from 'react-animate-on-scroll';
+import About from './About';
 
 const styles = theme => ({
 	root: {
@@ -34,8 +35,8 @@ const styles = theme => ({
 		textAlign: 'center'
 	},
 	carouselContainer: {
-		maxWidth: '300px',
-		padding: '3rem 1rem',
+		maxWidth: '720px',
+		padding: '1rem 1rem 3rem 1rem',
 		marginLeft: 'auto',
 		marginRight: 'auto'
 	},
@@ -64,32 +65,35 @@ class Home extends React.Component {
 		const { classes } = this.props;
 		return(
 			<div>
-			<Grid container className={classes.root} direction='column' alignItems='center' justify='flex-start' spacing={24}>
-	            <Grid sm={12} item>
-	            	<div className={classes.heroImage}>
-	            		<img src={forgeIcon} className={classes.forgeImage}/>
-	            	</div>
+				<Grid container className={classes.root} direction='column' alignItems='center' justify='flex-start' spacing={48}>
+		            <Grid sm={12} item>
+		            	<div className={classes.heroImage}>
+		            		<img src={forgeIcon} className={classes.forgeImage}/>
+		            	</div>
+					</Grid>
+					<Grid sm={12} item>
+						<div className={classes.heroBanner}>
+							<ScrollAnimation animateIn='fadeIn' animateOnce>
+								<h1>Welcome to The Forge</h1>
+							</ScrollAnimation>
+							<ScrollAnimation animateIn='fadeIn' animateOnce>
+								<h2>Forge Your Path</h2>
+							</ScrollAnimation>
+						</div>
+					</Grid>
 				</Grid>
+				<Divider className={classes.divider}/>
 				<Grid sm={12} item>
-					<div className={classes.heroBanner}>
-						<ScrollAnimation animateIn='fadeIn' animateOnce>
-							<h1>Welcome to The Forge</h1>
-						</ScrollAnimation>
-						<ScrollAnimation animateIn='fadeIn' animateOnce>
-							<h2>Forge Your Path</h2>
-						</ScrollAnimation>
-					</div>
+					<About />
 				</Grid>
-			</Grid>
-					<Divider className={classes.divider}/>
+				<Divider className={classes.divider}/>
 				<Grid sm={12} item>
 					<div className={classes.carouselContainer}>
+					<h2>Screenshots</h2>
 						<Carousel/>
 					</div>
 				</Grid>
-				<Grid sm={12} item>
-					<Divider className={classes.divider}/>
-				</Grid>
+				<Divider className={classes.divider}/>
 				<Grid sm={12} item>
 					<DownloadContainer />
 				</Grid>

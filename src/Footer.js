@@ -17,7 +17,7 @@ class Footer extends React.Component {
 		const { classes } = this.props;
 		return(
 			<footer className={classes.footer}>
-				Copyright 2018
+				Website made with React and Material-UI | Copyright 2018
 			</footer>
 		)
 	}

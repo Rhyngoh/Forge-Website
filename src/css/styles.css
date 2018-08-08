@@ -28,6 +28,9 @@ h2 {
   color: #a3a3c2;
   text-shadow: 2px 2px #000;
 }
+h3 {
+  font-size: 1.5rem;
+}
 .slick-slide {
   height: 80vh;
   background: #2196f3;
