@@ -1,6 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import { Grid, Divider } from '@material-ui/core/';
 import forgeIcon from './images/forgeAnvil.jpg';
@@ -65,10 +63,10 @@ class Home extends React.Component {
 		const { classes } = this.props;
 		return(
 			<div>
-				<Grid container className={classes.root} direction='column' alignItems='center' justify='flex-start' spacing={48}>
+				<Grid container className={classes.root} direction='column' alignItems='center' justify='flex-start' spacing={40}>
 		            <Grid sm={12} item>
 		            	<div className={classes.heroImage}>
-		            		<img src={forgeIcon} className={classes.forgeImage}/>
+		            		<img src={forgeIcon} className={classes.forgeImage} alt='Forge Icon'/>
 		            	</div>
 					</Grid>
 					<Grid sm={12} item>

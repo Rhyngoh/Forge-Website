@@ -54,7 +54,7 @@ class About extends React.Component {
 				<Grid xs={12} md={5} item className={classes.aboutSection}>
 					<h2>What is the Forge?</h2>
 					<p>
-						The Forge is a strategy and puzzle game that incorporates chess-like movements that is playable across all mobile devices. 
+						The Forge is a strategy and puzzle game that incorporates chess-like movements that is playable across all mobile devices. This blend of new gameplay mechanics puts a twist on the classic board game.
 					</p>
 					<p>
 						There are three <b>modes</b> to play: 

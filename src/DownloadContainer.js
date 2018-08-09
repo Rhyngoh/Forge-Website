@@ -30,8 +30,8 @@ class DownloadContainer extends React.Component {
 			<div className={classes.downloadContainer}>
 				<h2>Download now!</h2>
 				<div className={classes.badgeContainer}>
-					<img className={classes.downloadBadge} src={googleBadge}/>
-					<img className={classes.downloadBadge} src={appleBadge}/>
+					<img className={classes.downloadBadge} src={googleBadge} alt='Google Play Download Badge'/>
+					<img className={classes.downloadBadge} src={appleBadge} alt='Apple Download Badge'/>
 				</div>
 			</div>
 		)
