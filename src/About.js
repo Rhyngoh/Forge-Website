@@ -2,13 +2,19 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import { Grid, Button } from '@material-ui/core';
+import jss from 'jss';
+import preset from 'jss-preset-default';
+
+jss.setup(preset());
 
 const styles = theme => ({
 	aboutContainer: {
 		display: 'flex',
 		paddingLeft: '3rem',
 		paddingRight: '3rem',
-		textAlign: 'center'
+		'& h3': {
+			textAlign: 'center'
+		}
 	},
 	button: {
 		margin: theme.spacing.unit
@@ -22,8 +28,8 @@ const styles = theme => ({
 const ModeDescription = {
 	mode: [
 	{ title: 'Crafting', description: 'Forge weapons of steel in crafting mode! The goal is to hit pieces while generating a good score to eventually craft legendary weapons.'},
-	{ title: 'Battle', description: 'Fight hordes of monsters and bosses with the weapons you\'ve crafted in Crafting mode.'},
-	{ title: 'Challenge', description: 'Challenge yourself against pre-defined stages and try to achieve three stars on each stage!'}
+	{ title: 'Explore', description: 'Fight hordes of monsters and bosses with the weapons you\'ve crafted in Crafting mode.'},
+	{ title: 'Challenge', description: 'Challenge yourself against pre-defined stages and try to achieve three stars on each stage!<br><br> Earn stars by accomplishing 3 goals: <ul><li>Hit the seal</li><li>Score a certain number of points</li><li>Completely clear the board</li></ul> Every challenge puzzle has a preset number of pieces, a specific starting point, and a set seal location.'}
 	],
 	get: function(title) {
 		const isMode = m => m.title === title
@@ -60,12 +66,12 @@ class About extends React.Component {
 						There are three <b>modes</b> to play: 
 					</p>
 					<Button variant="outlined" className={classes.button} onClick={(e) => this.handleClick("Crafting", e)}>Crafting</Button>
-					<Button variant="outlined" className={classes.button} onClick={(e) => this.handleClick("Battle", e)}>Battle</Button>
+					<Button variant="outlined" className={classes.button} onClick={(e) => this.handleClick("Explore", e)}>Explore</Button>
 					<Button variant="outlined" className={classes.button} onClick={(e) => this.handleClick("Challenge", e)}>Challenge</Button>
 				</Grid>
 				<Grid xs={12} md={5} item>
 					<h3>{this.state.title}</h3>
-					<p>{this.state.description}</p>
+					<p dangerouslySetInnerHTML={{ __html: this.state.description }}></p>
 				</Grid>
 			</Grid>
 		)

@@ -39,12 +39,12 @@ class FullRoster extends React.Component {
 					<Divider />
 					{
 						PieceAPI.all().map(p => (
-							<Grid container className={classes.pieceContainer} alignItems='center' justify='space-around' spacing={24} key={p.number}>
-								<Grid xs={12} sm={5} item>
+							<Grid container className={classes.pieceContainer} alignItems='center' justify='center' spacing={24} key={p.number}>
+								<Grid xs={12} sm={4} item>
 									<h3>{p.name}</h3>
 									<p>{p.description}</p>
 								</Grid>
-								<Grid xs={12} sm={5} item>
+								<Grid xs={12} sm={4} item>
 									<img src={forgeIcon} width='200' alt={p.name}/>
 								</Grid>
 							</Grid>
