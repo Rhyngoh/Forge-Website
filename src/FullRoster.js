@@ -5,7 +5,6 @@ import { Grid, Divider } from '@material-ui/core/';
 import { withStyles } from '@material-ui/core/styles';
 import jss from 'jss';
 import preset from 'jss-preset-default';
-import forgeIcon from './images/forgeAnvil.jpg';
 import PropTypes from 'prop-types';
 
 jss.setup(preset());
@@ -45,7 +44,7 @@ class FullRoster extends React.Component {
 									<p>{p.description}</p>
 								</Grid>
 								<Grid xs={12} sm={4} item>
-									<img src={forgeIcon} width='200' alt={p.name}/>
+									<img src={p.image} width='200' alt={p.name}/>
 								</Grid>
 							</Grid>
 						))
