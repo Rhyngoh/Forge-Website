@@ -27,9 +27,18 @@ const styles = theme => ({
 
 const ModeDescription = {
 	mode: [
-	{ title: 'Crafting', description: 'Forge weapons of steel in crafting mode! The goal is to hit pieces while generating a good score to eventually craft legendary weapons.'},
-	{ title: 'Explore', description: 'Fight hordes of monsters and bosses with the weapons you\'ve crafted in Crafting mode.'},
-	{ title: 'Challenge', description: 'Challenge yourself against pre-defined stages and try to achieve three stars on each stage!<br><br> Earn stars by accomplishing 3 goals: <ul><li>Hit the seal</li><li>Score a certain number of points</li><li>Completely clear the board</li></ul> Every challenge puzzle has a preset number of pieces, a specific starting point, and a set seal location.'}
+	{ 
+		title: 'Crafting', 
+		description: 'Forge weapons of steel in crafting mode! The goal is to hit pieces while generating a good score to eventually craft legendary weapons.'
+	},
+	{ 
+		title: 'Explore', 
+		description: 'Fight hordes of monsters and bosses with the weapons you\'ve crafted in Crafting mode.'
+	},
+	{ 
+		title: 'Challenge', 
+		description: 'Challenge yourself against pre-defined stages and try to achieve three stars on each stage!<br><br> Earn stars by accomplishing 3 goals: <ul><li>Hit the seal</li><li>Score a certain number of points</li><li>Completely clear the board</li></ul> Every challenge puzzle has a preset number of pieces, a specific starting point, and a set seal location.'
+	}
 	],
 	get: function(title) {
 		const isMode = m => m.title === title
