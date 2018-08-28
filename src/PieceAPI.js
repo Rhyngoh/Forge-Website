@@ -12,14 +12,14 @@ const PieceAPI = {
 			{ number: 9, name: 'Joker', link: 'Joker', description: 'The Joker is a rare piece that enables the next move taken to be anywhere on the board. The Joker is normally awarded during crafting when all of the pieces on the board has a lost a certain amount of heat.', image: '/images/Joker.png'}
 		],
 		reversePieces: [
-			{ number: 10, name: 'Reverse Rook', link: 'Reverse-Rook', description: 'sample description', image: '/images/Reverse-Rook.png' },
-			{ number: 11, name: 'Reverse Bishop', link: 'Reverse-Bishop', description: 'sample description', image: '/images/Reverse-Bishop.png' },
-			{ number: 12, name: 'Reverse Queen', link: 'Reverse-Queen', description: 'sample description', image: '/images/Reverse-Queen.png' },
+			{ number: 10, name: 'Reverse Rook', link: 'Reverse-Rook', description: 'Reverse Rooks must be followed by striking a piece in line with the Rook either horizontally or vertically in between the Rook and the edge of the board.', image: '/images/Reverse-Rook.png' },
+			{ number: 11, name: 'Reverse Bishop', link: 'Reverse-Bishop', description: 'Reverse Bishops must be followed by striking a piece diagonally in line with the Bishop and in between the Bishop and the edges of the board.', image: '/images/Reverse-Bishop.png' },
+			{ number: 12, name: 'Reverse Queen', link: 'Reverse-Queen', description: 'Reverse Queens must be followed by striking a piece in line with the Queen horizontally, vertically, or diagonally and in between the Queen and the edge of the board.', image: '/images/Reverse-Queen.png' },
 		],
 		superPieces: [
-			{ number: 13, name: 'Super Rook', link: 'Super-Rook', description: 'sample description', image: '/images/Super-Rook.png' },
-			{ number: 14, name: 'Super Bishop', link: 'Super-Bishop', description: 'sample description', image: '/images/Super-Bishop.png' },
-			{ number: 15, name: 'Super Queen', link: 'Super-Queen', description: 'sample description', image: '/images/Super-Queen.png' },
+			{ number: 13, name: 'Super Rook', link: 'Super-Rook', description: 'Super Rooks must be followed by striking a piece in line with the Rook either vertically or diagonally.', image: '/images/Super-Rook.png' },
+			{ number: 14, name: 'Super Bishop', link: 'Super-Bishop', description: 'Super Bishops must be followed by striking a piece in line with the Bishop diagonally.', image: '/images/Super-Bishop.png' },
+			{ number: 15, name: 'Super Queen', link: 'Super-Queen', description: 'Super Queens must be followed by striking a piece in line with the Queen horizontally, vertically, or diagonally.', image: '/images/Super-Queen.png' },
 		]
 	},
 	all: function(){
@@ -28,6 +28,10 @@ const PieceAPI = {
 	},
 	basic: function() {
 		return this.pieces.basicPieces;
+	},
+	advanced: function() {
+		const advancedPiece = [...this.pieces.reversePieces, ...this.pieces.superPieces];
+		return advancedPiece;
 	},
 	reverse: function() {
 		return this.pieces.reversePieces;

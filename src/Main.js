@@ -2,7 +2,7 @@ import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import Home from './Home';
 import Roster from './Roster';
-import Schedule from './Schedule';
+import Mode from './Mode';
 
 const Main = () => {
 	return(
@@ -10,7 +10,7 @@ const Main = () => {
 			<Switch>
 				<Route exact path='/' component={Home}/>
 				<Route path='/roster' component={Roster}/>
-				<Route path='/schedule' component={Schedule}/>
+				<Route path='/mode' component={Mode}/>
 			</Switch>
 		</main>
 	)
