@@ -33,7 +33,7 @@ const ModeDescription = {
 	},
 	{ 
 		title: 'Explore', 
-		description: 'Defeat as many enemies as possible! The player can use the weapons that have been crafted or purchased and choose a hero to explore and rid the world of Chaos.<br><br>The goal of the explore puzzle is to defeat all the enemies. Each level or difficulty has a set number of rounds or monsters that need to be defeated in order to progress further.'
+		description: 'Defeat as many enemies as possible! The player can use the weapons that have been crafted or purchased and choose a hero to explore and rid the world of Chaos.<br><br>The goal of the explore puzzle is to defeat all the enemies. Each level or difficulty has a set number of rounds or monsters that need to be defeated in order to progress further.<br><br>'
 	},
 	{ 
 		title: 'Challenge', 

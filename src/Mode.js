@@ -10,13 +10,13 @@
 
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
-import FullRoster from './FullRoster';
-import Piece from './Piece';
+import AllModes from './AllModes';
+import Modes from './Modes';
 
 const Roster = () => (
 	<Switch>
-		<Route exact path='/roster' component={FullRoster}/>
-		<Route path='/roster/:name' component={Piece}/>
+		<Route exact path='/mode' component={AllModes}/>
+		<Route path='/mode/:name' component={Modes}/>
 	</Switch>
 )
 
