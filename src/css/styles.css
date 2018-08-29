@@ -114,3 +114,7 @@ h3 {
   opacity: 0.01;
   transition: opacity .5s ease-in;
 }
+#modeContainer {
+  display: flex;
+  align-content: center;
+}

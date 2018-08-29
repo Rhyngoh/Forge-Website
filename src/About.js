@@ -4,6 +4,7 @@ import { withStyles } from '@material-ui/core/styles';
 import { Grid, Button } from '@material-ui/core';
 import jss from 'jss';
 import preset from 'jss-preset-default';
+import { Link } from 'react-router-dom';
 
 jss.setup(preset());
 
@@ -29,15 +30,18 @@ const ModeDescription = {
 	mode: [
 	{ 
 		title: 'Crafting', 
-		description: 'Forge weapons of steel in crafting mode! The goal is to hit pieces while generating a good score to eventually craft legendary weapons.'
+		description: 'Forge weapons of steel in crafting mode! The goal of the crafting puzzle is to create a weapon by scoring enough points to complete 3 moulds.<br><br>Scoring is based on how much of the board is cleared and bonus points are awarded for chaining combination of tiles hit in a sequence.',
+		link: '/mode/Crafting'
 	},
 	{ 
 		title: 'Explore', 
-		description: 'Defeat as many enemies as possible! The player can use the weapons that have been crafted or purchased and choose a hero to explore and rid the world of Chaos.<br><br>The goal of the explore puzzle is to defeat all the enemies. Each level or difficulty has a set number of rounds or monsters that need to be defeated in order to progress further.<br><br>'
+		description: 'Defeat as many enemies as possible! The player can use the weapons that have been crafted or purchased and choose a hero to explore and rid the world of Chaos.<br><br>The goal of the explore puzzle is to defeat all the enemies. Each level or difficulty has a set number of rounds or monsters that need to be defeated in order to progress further.<br><br>',
+		link: '/mode/Explore'
 	},
 	{ 
 		title: 'Challenge', 
-		description: 'Challenge yourself against pre-defined stages and try to achieve three stars on each stage!<br><br> Earn stars by accomplishing 3 goals: <ul><li>Hit the seal</li><li>Score a certain number of points</li><li>Completely clear the board</li></ul> Every challenge puzzle has a preset number of pieces, a specific starting point, and a set seal location.'
+		description: 'Challenge yourself against pre-defined stages and try to achieve three stars on each stage!<br><br> Earn stars by accomplishing 3 goals: <ul><li>Hit the seal</li><li>Score a certain number of points</li><li>Completely clear the board</li></ul> Every challenge puzzle has a preset number of pieces, a specific starting point, and a set seal location.',
+		link: '/mode/Challenge'
 	}
 	],
 	get: function(title) {
@@ -52,14 +56,18 @@ class About extends React.Component {
 
 		this.state = {
 			title: 'Select a mode to learn more!',
-			description: ''
+			description: '',
+			link: '',
+			learnMore: ''
 		}
 	}
 	handleClick(params, e) {
 		let shownMode = ModeDescription.get(params);
 		this.setState({
 			title: shownMode.title,
-			description: shownMode.description
+			description: shownMode.description,
+			link: shownMode.link,
+			learnMore: 'Learn More'
 		})
 	}
 	render(){
@@ -81,6 +89,7 @@ class About extends React.Component {
 				<Grid xs={12} md={5} item>
 					<h3>{this.state.title}</h3>
 					<p dangerouslySetInnerHTML={{ __html: this.state.description }}></p>
+					<Link to={this.state.link}>{this.state.learnMore}</Link>
 				</Grid>
 			</Grid>
 		)

@@ -29,9 +29,10 @@ class DownloadContainer extends React.Component {
 		return(
 			<div className={classes.downloadContainer}>
 				<h2>Download now!</h2>
+				<p>Currently only available on Android. Development on Apple in progress!</p>
 				<div className={classes.badgeContainer}>
 					<img className={classes.downloadBadge} src={googleBadge} alt='Google Play Download Badge'/>
-					<img className={classes.downloadBadge} src={appleBadge} alt='Apple Download Badge'/>
+					
 				</div>
 			</div>
 		)
@@ -43,3 +44,4 @@ DownloadContainer.propTypes = {
 };
 
 export default withStyles(styles)(DownloadContainer);
+//<img className={classes.downloadBadge} src={appleBadge} alt='Apple Download Badge'/>

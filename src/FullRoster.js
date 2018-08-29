@@ -51,7 +51,7 @@ class FullRoster extends React.Component {
 					<Divider />
 					<Grid container spacing={24} className={classes.pieceInfo} alignItems='center' justify='center'>
 						<Grid xs={8} item>
-							<a class={classes.pieceNav} href="#basic-pieces">Basic</a> | <a class={classes.pieceNav} href="#advanced-pieces">Advanced</a>
+							<a className={classes.pieceNav} href="#basic-pieces">Basic</a> | <a class={classes.pieceNav} href="#advanced-pieces">Advanced</a>
 						</Grid>
 						<Grid xs={8} item>
 							<h2 id='basic-pieces'>Basic Pieces</h2>

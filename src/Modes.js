@@ -1,21 +1,29 @@
 import React from 'react';
-import PieceAPI from './PieceAPI';
+import ModeAPI from './ModeAPI';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import { withStyles } from '@material-ui/core/styles';
+import { Grid } from '@material-ui/core';
 
-const Piece = (props) => {
-	const piece = PieceAPI.get(
+const Mode = (props) => {
+	const mode = ModeAPI.get(
 		props.match.params.name
 	)
-	if(!piece){
-		return <div>No piece was found</div>
+	if(!mode){
+		return <div>No Mode was found</div>
 	}
 	return(
 		<div>
-			<h1>{piece.name}</h1>
-			<h2>Description: {piece.description}</h2>
-			<Link to='/roster'>Back</Link>
+			<Grid id="modeContainer" container justify='center' spacing={24}>
+				<Grid sm={10} item>
+				<h1>{mode.name}</h1>
+				</Grid>
+				<Grid sm={10} item>
+				<p dangerouslySetInnerHTML={{ __html: mode.description }}></p>
+				<Link to='/mode'>Back</Link>
+				</Grid>
+			</Grid>
 		</div>
 	)
 }
-
-export default Piece;
+export default Mode;
