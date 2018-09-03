@@ -31,8 +31,9 @@ class DownloadContainer extends React.Component {
 				<h2>Download now!</h2>
 				<p>Currently only available on Android. Development on Apple in progress!</p>
 				<div className={classes.badgeContainer}>
-					<img className={classes.downloadBadge} src={googleBadge} alt='Google Play Download Badge'/>
-					
+					<a href="https://play.google.com/store/apps/details?id=com.LozengeLabs.TheForge2" target="_blank">
+						<img className={classes.downloadBadge} src={googleBadge} alt='Google Play Download Badge'/>
+					</a>
 				</div>
 			</div>
 		)
