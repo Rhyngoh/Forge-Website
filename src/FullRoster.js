@@ -1,6 +1,5 @@
 import React from 'react';
 import PieceAPI from './PieceAPI';
-import { Link } from 'react-router-dom';
 import { Grid, Divider } from '@material-ui/core/';
 import { withStyles } from '@material-ui/core/styles';
 import jss from 'jss';

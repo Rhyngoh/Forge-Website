@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
-import appleBadge from './images/apple-play-badge.png';
+// import appleBadge from './images/apple-play-badge.png';
 import googleBadge from './images/google-play-badge.png';
 
 const styles = theme => ({
@@ -31,7 +31,7 @@ class DownloadContainer extends React.Component {
 				<h2>Download now!</h2>
 				<p>Currently only available on Android. Development on Apple in progress!</p>
 				<div className={classes.badgeContainer}>
-					<a href="https://play.google.com/store/apps/details?id=com.LozengeLabs.TheForge2" target="_blank">
+					<a href="https://play.google.com/store/apps/details?id=com.LozengeLabs.TheForge2" target="_blank" rel="noopener noreferrer">
 						<img className={classes.downloadBadge} src={googleBadge} alt='Google Play Download Badge'/>
 					</a>
 				</div>

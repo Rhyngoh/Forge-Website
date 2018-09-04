@@ -1,8 +1,6 @@
 import React from 'react';
 import ModeAPI from './ModeAPI';
 import { Link } from 'react-router-dom';
-import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
 import { Grid } from '@material-ui/core';
 
 const Mode = (props) => {
