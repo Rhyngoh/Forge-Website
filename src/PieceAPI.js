@@ -3,7 +3,7 @@ const PieceAPI = {
 		basicPieces: [
 			{ number: 1, name: 'Basic Piece 1', link: 'Basic-Piece-1', description: 'Strike this piece and hit any surrounding tile. This is a wonderful tile to continue combinations.', image: '${process.env.PUBLIC_URL}/images/Basic-1.png' },
 			{ number: 2, name: 'Basic Piece 2', link: 'Basic-Piece-2', description: 'This piece allows the forge master to hit another tile 2 spaces away.', image: 'public/images/Basic-2.png' },
-			{ number: 3, name: 'Basic Piece 3', link: 'Basic-Piece-3', description: 'Larger numbered pieces have limited number of tiles to strike next turn. Use them wisely!', image: '/images/Basic-3.png' },
+			{ number: 3, name: 'Basic Piece 3', link: 'Basic-Piece-3', description: 'Larger numbered pieces have limited number of tiles to strike next turn. Use them wisely!', image: './images/Basic-3.png' },
 			{ number: 4, name: 'Basic Piece 4', link: 'Basic-Piece-4', description: 'The largest numbered piece extends 4 spaces.', image: '/images/Basic-4.png' },
 			{ number: 5, name: 'Knight', link: 'Knight', description: 'The knight must be followed by striking a piece two squares in a cardinal direction, and one square perpendicular to that direction.', image: '/images/Knight.png' },
 			{ number: 6, name: 'Rook', link: 'Rook', description: 'The Rook must be followed by striking a piece at the edge of the board and in line with the Rook horizontally or vertically (cardinal directions)', image: '/images/Rook.png' },
