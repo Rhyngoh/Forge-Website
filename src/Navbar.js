@@ -12,7 +12,8 @@ import HomeIcon from '@material-ui/icons/Home';
 const drawerWidth = 240;
 const styles = theme => ({
 	button: {
-		margin: theme.spacing.unit
+		margin: theme.spacing.unit,
+		textDecoration: 'none'
 	},
 	flex: {
 		flex: 1
@@ -42,6 +43,9 @@ const styles = theme => ({
 	menuButton: {
 		marginLeft: '-12px',
 		marginRight: '5px'
+	},
+	linkStyle: {
+		textDecoration: 'none'
 	}
 });
 
@@ -49,7 +53,6 @@ class Navbar extends React.Component {
 	render(){
 		const { classes } = this.props;
 		return(
-		
 			<AppBar position="static" title="The Forge" color="primary">
 		        <Toolbar>
 			        <Link to='/'>
@@ -59,14 +62,17 @@ class Navbar extends React.Component {
 		            	<b>The Forge</b>
 		            </Typography>
 		            
-		            <Link to='/'>
+		            <Link to='/' className={classes.linkStyle}>
 		            	<Button variant="contained" color="secondary" className={classes.button}>Home</Button>
 		            </Link>
-		            <Link to='/roster'>
+		            <Link to='/roster' className={classes.linkStyle}>
 		            	<Button variant="contained" color="secondary" className={classes.button}>Pieces</Button>
 		            </Link>
+		            <Link to='/mode' className={classes.linkStyle}>
+		            	<Button variant="contained" color="secondary" className={classes.button}>Modes</Button>
+		            </Link>
 		        </Toolbar>
-	      </AppBar>
+	      	</AppBar>
 		)
 	}
 }

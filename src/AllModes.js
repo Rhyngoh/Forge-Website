@@ -30,6 +30,9 @@ const styles = {
 	modeButtons: {
 		display: 'flex',
 		justify: 'space-around'
+	},
+	linkStyle: {
+		textDecoration: 'none'
 	}
 }
 
@@ -47,9 +50,9 @@ class FullRoster extends React.Component {
 						</Grid>
 						<Grid xs={8} item>
 							<Grid container spacing={24} justify='space-around'>
-								<Link to="/mode/Crafting"><Button variant="outlined" className={classes.button}>Crafting</Button></Link> 
-								<Link to="/mode/Explore"><Button variant="outlined" className={classes.button}>Explore</Button></Link> 
-								<Link to="/mode/Challenge"><Button variant="outlined" className={classes.button}>Challenge</Button></Link> 
+								<Link to="/mode/Crafting" className={classes.linkStyle}><Button variant="outlined" className={classes.button}>Crafting</Button></Link> 
+								<Link to="/mode/Explore" className={classes.linkStyle}><Button variant="outlined" className={classes.button}>Explore</Button></Link> 
+								<Link to="/mode/Challenge" className={classes.linkStyle}><Button variant="outlined" className={classes.button}>Challenge</Button></Link> 
 							</Grid>
 						</Grid>
 					</Grid>
