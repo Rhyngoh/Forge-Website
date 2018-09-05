@@ -8,6 +8,10 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import HomeIcon from '@material-ui/icons/Home';
+import MenuIcon from '@material-ui/icons/Menu';
+import Menu from '@material-ui/core/Menu';
+import MenuItem from '@material-ui/core/MenuItem';
+import Drawer from '@material-ui/core/Drawer';
 
 const drawerWidth = 240;
 const styles = theme => ({
@@ -41,17 +45,37 @@ const styles = theme => ({
 	},
 	toolbar: theme.mixins.toolbar,
 	menuButton: {
-		marginLeft: '-12px',
-		marginRight: '5px'
+		marginLeft: '8px',
+		marginRight: '8px'
 	},
 	linkStyle: {
 		textDecoration: 'none'
+	},
+	wrapper: {
+		[theme.breakpoints.down('xs')]: {
+			display: 'none'
+		}
 	}
 });
 
 class Navbar extends React.Component {
+	state = {
+		right: false
+	}
+	toggleDrawer = (open) => () => {
+		this.setState({
+			right: open
+		})
+	}
 	render(){
 		const { classes } = this.props;
+		const navList = (
+			<div className={classes.list}>
+				<MenuItem containerElement={<Link to="/" />} primaryText="Home"/>
+	        	<MenuItem containerElement={<Link to="roster" />} primaryText="Pieces"/>
+	        	<MenuItem containerElement={<Link to="modes" />} primaryText="Modes"/>
+        	</div>
+    	)
 		return(
 			<AppBar position="static" title="The Forge" color="primary">
 		        <Toolbar>
@@ -62,15 +86,26 @@ class Navbar extends React.Component {
 		            	<b>The Forge</b>
 		            </Typography>
 		            
-		            <Link to='/' className={classes.linkStyle}>
-		            	<Button variant="contained" color="secondary" className={classes.button}>Home</Button>
-		            </Link>
-		            <Link to='/roster' className={classes.linkStyle}>
-		            	<Button variant="contained" color="secondary" className={classes.button}>Pieces</Button>
-		            </Link>
-		            <Link to='/mode' className={classes.linkStyle}>
-		            	<Button variant="contained" color="secondary" className={classes.button}>Modes</Button>
-		            </Link>
+		            <span className={classes.wrapper}>
+			            <Link to='/' className={classes.linkStyle}>
+			            	<Button variant="contained" color="secondary" className={classes.button}>Home</Button>
+			            </Link>
+			            <Link to='/roster' className={classes.linkStyle}>
+			            	<Button variant="contained" color="secondary" className={classes.button}>Pieces</Button>
+			            </Link>
+			            <Link to='/mode' className={classes.linkStyle}>
+			            	<Button variant="contained" color="secondary" className={classes.button}>Modes</Button>
+			            </Link>
+		            </span>
+		            <IconButton className={classes.menuButton} color="inherit" aria-label="Menu" onClick={this.toggleDrawer(true)}>
+		            	<MenuIcon/>
+		            </IconButton>
+		            <Drawer anchor="right" id="navMenu" open={this.state.right} onClose={this.toggleDrawer(false)}>
+		            	<div tabIndex={0} role="button" onClick={this.toggleDrawer(false)} onKeyDown={this.toggleDrawer(false)}>
+		            		{navList}
+		            	</div>
+		            	
+		            </Drawer>
 		        </Toolbar>
 	      	</AppBar>
 		)
