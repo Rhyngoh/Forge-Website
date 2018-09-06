@@ -9,7 +9,6 @@ import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import HomeIcon from '@material-ui/icons/Home';
 import MenuIcon from '@material-ui/icons/Menu';
-import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import Drawer from '@material-ui/core/Drawer';
 
@@ -55,6 +54,12 @@ const styles = theme => ({
 		[theme.breakpoints.down('xs')]: {
 			display: 'none'
 		}
+	},
+	list: {
+		width: '200px',
+	},
+	menuItem: {
+		textAlign: 'center'
 	}
 });
 
@@ -71,9 +76,15 @@ class Navbar extends React.Component {
 		const { classes } = this.props;
 		const navList = (
 			<div className={classes.list}>
-				<MenuItem containerElement={<Link to="/" />} primaryText="Home"/>
-	        	<MenuItem containerElement={<Link to="roster" />} primaryText="Pieces"/>
-	        	<MenuItem containerElement={<Link to="modes" />} primaryText="Modes"/>
+				<Link to="/" className={classes.linkStyle}>
+					<MenuItem>Home</MenuItem>
+				</Link>
+				<Link to="/roster" className={classes.linkStyle}>
+	        		<MenuItem>Pieces</MenuItem>
+	        	</Link>
+	        	<Link to="/mode" className={classes.linkStyle}>
+	        		<MenuItem>Modes</MenuItem>
+	        	</Link>
         	</div>
     	)
 		return(
@@ -103,8 +114,7 @@ class Navbar extends React.Component {
 		            <Drawer anchor="right" id="navMenu" open={this.state.right} onClose={this.toggleDrawer(false)}>
 		            	<div tabIndex={0} role="button" onClick={this.toggleDrawer(false)} onKeyDown={this.toggleDrawer(false)}>
 		            		{navList}
-		            	</div>
-		            	
+		            	</div>   	
 		            </Drawer>
 		        </Toolbar>
 	      	</AppBar>

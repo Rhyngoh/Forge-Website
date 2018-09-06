@@ -32,7 +32,8 @@ const styles = {
 		justify: 'space-around'
 	},
 	linkStyle: {
-		textDecoration: 'none'
+		textDecoration: 'none',
+		margin: '5px'
 	}
 }
 

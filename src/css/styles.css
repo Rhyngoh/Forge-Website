@@ -118,3 +118,7 @@ h3 {
   display: flex;
   align-content: center;
 }
+#modeContainer img{
+  display: block;
+  margin: 0 auto;
+}
