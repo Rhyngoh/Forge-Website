@@ -79,7 +79,7 @@ class Navbar extends React.Component {
 				<Link to="/" className={classes.linkStyle}>
 					<MenuItem>Home</MenuItem>
 				</Link>
-				<Link to="/roster" className={classes.linkStyle}>
+				<Link to="/piece" className={classes.linkStyle}>
 	        		<MenuItem>Pieces</MenuItem>
 	        	</Link>
 	        	<Link to="/mode" className={classes.linkStyle}>
@@ -101,7 +101,7 @@ class Navbar extends React.Component {
 			            <Link to='/' className={classes.linkStyle}>
 			            	<Button variant="contained" color="secondary" className={classes.button}>Home</Button>
 			            </Link>
-			            <Link to='/roster' className={classes.linkStyle}>
+			            <Link to='/piece' className={classes.linkStyle}>
 			            	<Button variant="contained" color="secondary" className={classes.button}>Pieces</Button>
 			            </Link>
 			            <Link to='/mode' className={classes.linkStyle}>

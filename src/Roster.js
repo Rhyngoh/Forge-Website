@@ -5,8 +5,8 @@ import Piece from './Piece';
 
 const Roster = () => (
 	<Switch>
-		<Route exact path='/roster' component={FullRoster}/>
-		<Route path='/roster/:name' component={Piece}/>
+		<Route exact path='/piece' component={FullRoster}/>
+		<Route path='/piece/:name' component={Piece}/>
 	</Switch>
 )
 
