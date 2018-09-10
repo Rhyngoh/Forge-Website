@@ -2,14 +2,22 @@
   "name": "forge-website",
   "version": "0.1.0",
   "private": true,
+  "secure": false,
   "dependencies": {
     "@material-ui/core": "^1.2.1",
     "@material-ui/icons": "^1.1.0",
     "ajv-keywords": "^3.2.0",
     "animate.css": "^3.7.0",
+    "axios": "^0.18.0",
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "foreman": "^3.0.1",
     "jquery": "^3.3.1",
     "jss": "^9.8.7",
     "jss-preset-default": "^4.5.0",
+    "marked": "^0.5.0",
+    "mongoose": "^5.2.14",
+    "nodemon": "^1.18.4",
     "radium": "^0.24.0",
     "react": "^16.4.0",
     "react-animate-on-scroll": "^2.1.5",
@@ -27,5 +35,6 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
-  }
+  },
+  "proxy": "http://localhost:3001"
 }
