@@ -85,6 +85,9 @@ class Navbar extends React.Component {
 	        	<Link to="/mode" className={classes.linkStyle}>
 	        		<MenuItem>Modes</MenuItem>
 	        	</Link>
+	        	<Link to="/boards" className={classes.linkStyle}>
+	        		<MenuItem>Custom Boards</MenuItem>
+	        	</Link>
         	</div>
     	)
 		return(
@@ -106,6 +109,9 @@ class Navbar extends React.Component {
 			            </Link>
 			            <Link to='/mode' className={classes.linkStyle}>
 			            	<Button variant="contained" color="secondary" className={classes.button}>Modes</Button>
+			            </Link>
+			            <Link to='/boards' className={classes.linkStyle}>
+			            	<Button variant="contained" color="secondary" className={classes.button}>Custom</Button>
 			            </Link>
 		            </span>
 		            <IconButton className={classes.menuButton} color="inherit" aria-label="Menu" onClick={this.toggleDrawer(true)}>

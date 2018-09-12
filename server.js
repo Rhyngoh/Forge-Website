@@ -41,11 +41,8 @@ app.get('/api/getList', (req, res) => {
 });
 
 app.get('/boards', (req, res) => {
-	Boards.find({}, function(err, board) {
+	Boards.find({}).sort({'createdAt': -1}).limit(20).exec(function(err, board) {
 		if(err) throw err;
-
-		console.log(board);
-
 		var customMap = [];
 		board.forEach(function(custom) {
 			customMap.push(custom);

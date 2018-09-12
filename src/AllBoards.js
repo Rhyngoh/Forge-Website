@@ -81,6 +81,8 @@ class AllBoards extends React.Component {
 		}).then(res => res.json()).then((res) => {
 			if(!res.success) this.setState({ error: res.error.message || res.error });
 			else this.setState({ author: '', title: '', image: '', error: null });
+		}).then(()=>{
+			this.getList();
 		});
 	}
 
@@ -94,12 +96,12 @@ class AllBoards extends React.Component {
 					<Divider />
 					<Grid container spacing={24} className={classes.pieceInfo} alignItems='center' justify='center'>
 						<Grid xs={8} item>
-							<BoardList data={this.state.data} />
-						</Grid>
-						<Grid xs={8} item>
 							<div className="form">
 								<SubmitForm author={this.state.author} title={this.state.title} image={this.state.image} handleChangeText={this.onChangeText} submitCustom={this.submitCustom}/>
 							</div>
+						</Grid>
+						<Grid xs={10} item>
+							<BoardList data={this.state.data} />
 						</Grid>
 						{this.state.error && <p>{this.state.error}</p>}
 					</Grid>
