@@ -1,13 +1,15 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
-import FullRoster from './FullRoster';
-import Piece from './Piece';
+import AllBoards from './AllBoards';
+import SubmitForm from './SubmitForm';
+import BoardList from './BoardList';
 
-const Roster = () => (
+const Boards = () => (
 	<Switch>
-		<Route exact path='/piece' component={FullRoster}/>
-		<Route path='/piece/:name' component={Piece}/>
+		<Route exact path='/boards' component={AllBoards}/>
+		<Route path='/boards/:id' component={BoardList}/>
+		<Route exact path='/boards/submit' component={SubmitForm}/>
 	</Switch>
 )
 
-export default Roster;
+export default Boards;
