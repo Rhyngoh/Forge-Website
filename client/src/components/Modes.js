@@ -3,7 +3,7 @@ import ModeAPI from './ModeAPI';
 import { Link } from 'react-router-dom';
 import { Grid } from '@material-ui/core';
 
-const Mode = (props) => {
+const Modes = (props) => {
 	const mode = ModeAPI.get(
 		props.match.params.name
 	)
@@ -24,4 +24,4 @@ const Mode = (props) => {
 		</div>
 	)
 }
-export default Mode;
+export default Modes;

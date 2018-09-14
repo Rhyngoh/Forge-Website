@@ -1,7 +1,7 @@
 import React from 'react';
-import Navbar from './Navbar';
-import Main from './Main';
-import Footer from './Footer';
+import Navbar from './components/Navbar';
+import Main from './components/Main';
+import Footer from './components/Footer';
 
 import './css/styles.css';
 import './css/animate.min.css';

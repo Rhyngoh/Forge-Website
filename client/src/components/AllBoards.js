@@ -47,6 +47,7 @@ class AllBoards extends React.Component {
 			title: '',
 			image: ''
 		}
+		// this.submitCustom = this.submitCustom.bind(this);
 	}
 
 	componentDidMount() {
@@ -54,7 +55,7 @@ class AllBoards extends React.Component {
 	}
 
 	getList = () => {
-		fetch('/boards')
+		fetch('/api/boards')
 		.then((response) => {
 			console.log(response);
 			return response.json();
@@ -70,11 +71,13 @@ class AllBoards extends React.Component {
 		this.setState(newState);
 	}
 
-	submitCustom = (e) => {
+	handleSubmit = (e) => {
+		console.log('SUBMIT');
 		e.preventDefault();
 		const { author, title, image} = this.state;
+		console.log(this);
 		if(!author || !title || !image) return;
-		fetch('/boards', {
+		fetch('/api/boards', {
 			method: 'POST',
 			headers: {'Content-Type': 'application/json'},
 			body: JSON.stringify({author,title,image}),
@@ -85,6 +88,22 @@ class AllBoards extends React.Component {
 			this.getList();
 		});
 	}
+	// submitCustom(e) {
+	// 	e.preventDefault();
+	// 	const { author, title, image} = this.state;
+	// 	console.log(this);
+	// 	if(!author || !title || !image) return;
+	// 	fetch('/api/boards', {
+	// 		method: 'POST',
+	// 		headers: {'Content-Type': 'application/json'},
+	// 		body: JSON.stringify({author,title,image}),
+	// 	}).then(res => res.json()).then((res) => {
+	// 		if(!res.success) this.setState({ error: res.error.message || res.error });
+	// 		else this.setState({ author: '', title: '', image: '', error: null });
+	// 	}).then(()=>{
+	// 		this.getList();
+	// 	});
+	// }
 
 	render(){
 		const { classes } = this.props;
@@ -97,7 +116,7 @@ class AllBoards extends React.Component {
 					<Grid container spacing={24} className={classes.pieceInfo} alignItems='center' justify='center'>
 						<Grid xs={8} item>
 							<div className="form">
-								<SubmitForm author={this.state.author} title={this.state.title} image={this.state.image} handleChangeText={this.onChangeText} submitCustom={this.submitCustom}/>
+								<SubmitForm author={this.state.author} title={this.state.title} image={this.state.image} handleChangeText={this.onChangeText} submitCustom={this.handleSubmit}/>
 							</div>
 						</Grid>
 						<Grid xs={10} item>

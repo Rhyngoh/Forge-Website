@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 // import appleBadge from './images/apple-play-badge.png';
-import googleBadge from './images/google-play-badge.png';
+import googleBadge from './../images/google-play-badge.png';
 
 const styles = theme => ({
 	badgeContainer: {

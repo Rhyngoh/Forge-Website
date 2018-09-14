@@ -1,7 +1,7 @@
 import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import { Grid, Divider } from '@material-ui/core/';
-import forgeIcon from './images/HiResIcon.jpg';
+import forgeIcon from './../images/HiResIcon.jpg';
 
 import DownloadContainer from './DownloadContainer';
 import Carousel from './Carousel';

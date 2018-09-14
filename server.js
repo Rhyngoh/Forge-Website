@@ -1,42 +1,41 @@
+// const express = require('express');
+// const bodyParser = require('body-parser');
+// const logger = require('morgan');
+// const mongoose = require('mongoose');
+// const path = require('path');
+// const config = require('./secrets');
+// const Boards = require('./model/BoardSchema');
 import express from 'express';
 import bodyParser from 'body-parser';
 import logger from 'morgan';
 import mongoose from 'mongoose';
 import path from 'path';
-import { getSecret } from './secrets';
+//import config from './secrets';
 import Boards from './model/BoardSchema';
 
 const app = express();
-const router = express.Router();
+// const router = express.Router();
 
-const port = process.env.PORT || 3001;
+const port = process.env.PORT || 5000;
 
-mongoose.connect(getSecret('dbUri')).then(
+//config.DB instead of url below
+mongoose.connect('mongodb://admin:77AE28e3!@ds245532.mlab.com:45532/forge').then(
 	() => {console.log('Database is connected')}, 
 	err => {console.log('Error connecting to DB' + err)});
-var db = mongoose.connection;
+const db = mongoose.connection;
+
+// Serve static files from the React app
+app.use(express.static(path.join(__dirname, 'client/build')));
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(logger('dev'));
 
-app.use(express.static(path.join(__dirname + '/build')));
-
-// app.use(function(req, res, next) {
-// 	res.setHeader('Access-Control-Allow-Origin', '*');
-// 	res.setHeader('Access-Control-Allow-Credentials', 'true');
-// 	res.setHeader('Access-Control-Allow-Methods', 'GET,HEAD,OPTIONS,POST,PUT,DELETE');
-// 	res.setHeader('Access-Control-Allow-Headers', 'Access-Control-Allow-Headers, Origin, Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers');
-
-// 	res.setHeader('Cache-Control', 'no-cache');
-// 	next();
-// });
-
 app.get('/', (req, res) => {
 	res.json({ message: 'API initialized!'});
 });
 
-app.get('/boards', (req, res) => {
+app.get('/api/boards', (req, res) => {
 	Boards.find({}).sort({'createdAt': -1}).limit(20).exec(function(err, board) {
 		if(err) throw err;
 		var customMap = [];
@@ -48,7 +47,8 @@ app.get('/boards', (req, res) => {
 	});
 });
 
-app.post('/boards', (req, res) => {
+app.post('/api/boards', (req, res) => {
+	console.log(req.body);
 	const custom = new Boards();
 	const { author, title, image } = req.body;
 	if(!author || !title || !image){
@@ -66,8 +66,10 @@ app.post('/boards', (req, res) => {
 	});
 });
 
+// The "catchall" handler: for any request that doesn't
+// match one above, send back React's index.html file.
 app.get('*', (req, res) => {
-	res.sendFile(path.join(__dirname+'/build/index.html'));
+  res.sendFile(path.join(__dirname+'/client/build/index.html'));
 });
 
 app.listen(port, function() {

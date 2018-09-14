@@ -5,10 +5,10 @@ import { withStyles } from '@material-ui/core/styles';
 import jss from 'jss';
 import preset from 'jss-preset-default';
 import PropTypes from 'prop-types';
-import exampleNumber from './images/Example-Numbered.png';
-import exampleNonNumber from './images/Example-Non-Numbered.png';
-import exampleReverse from './images/Example-Reverse.png';
-import exampleSuper from './images/Example-Super.png';
+import exampleNumber from './../images/Example-Numbered.png';
+import exampleNonNumber from './../images/Example-Non-Numbered.png';
+import exampleReverse from './../images/Example-Reverse.png';
+import exampleSuper from './../images/Example-Super.png';
 
 jss.setup(preset());
 

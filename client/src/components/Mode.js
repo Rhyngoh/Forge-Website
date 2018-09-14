@@ -1,23 +1,13 @@
-// import React from 'react';
-
-// const Schedule = () => {
-// 	return(
-// 		<p>Schedule</p>
-// 	)
-// }
-
-// export default Schedule;
-
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import AllModes from './AllModes';
 import Modes from './Modes';
 
-const Roster = () => (
+const Mode = () => (
 	<Switch>
 		<Route exact path='/mode' component={AllModes}/>
 		<Route path='/mode/:name' component={Modes}/>
 	</Switch>
 )
 
-export default Roster;
+export default Mode;

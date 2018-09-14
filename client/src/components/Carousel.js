@@ -1,12 +1,12 @@
 import React from "react";
 import { Carousel } from "react-responsive-carousel";
-import './css/carousel.min.css';
+import './../css/carousel.min.css';
 
-import screenChallenge from './images/GameScreens/screenChallenge.webp';
-import screenCraft from './images/GameScreens/screenCraft.webp';
-import screenExplore from './images/GameScreens/screenExplore.webp';
-import screenInventory from './images/GameScreens/screenInventory.webp';
-import screenDesign from './images/GameScreens/screenDesign.webp';
+import screenChallenge from './../images/GameScreens/screenChallenge.webp';
+import screenCraft from './../images/GameScreens/screenCraft.webp';
+import screenExplore from './../images/GameScreens/screenExplore.webp';
+import screenInventory from './../images/GameScreens/screenInventory.webp';
+import screenDesign from './../images/GameScreens/screenDesign.webp';
 
 export default () => (
   <Carousel autoPlay emulateTouch showArrows={false} infiniteLoop centerMode showThumbs={false}>

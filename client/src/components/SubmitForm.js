@@ -20,6 +20,7 @@ const styles = theme => ({
 
 function SubmitForm(props) {
 	const { classes } = props;
+	console.log(props);
 	return(
 		<form onSubmit={props.submitCustom} className={classes.container} autoComplete="off">
 			<TextField

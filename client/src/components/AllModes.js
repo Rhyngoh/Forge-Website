@@ -37,7 +37,7 @@ const styles = {
 	}
 }
 
-class FullRoster extends React.Component {
+class AllModes extends React.Component {
 	render(){
 		const { classes } = this.props;
 		return(
@@ -63,8 +63,8 @@ class FullRoster extends React.Component {
 	}
 }
 
-FullRoster.propTypes = {
+AllModes.propTypes = {
 	classes: PropTypes.object.isRequired
 };
 
-export default withStyles(styles)(FullRoster);
+export default withStyles(styles)(AllModes);
