@@ -47,7 +47,8 @@ app.get('/api/boards', (req, res) => {
 	});
 });
 
-app.post('/api/boards', (req, res) => {
+app.post('/api/boards/post', (req, res) => {
+	console.log('Post Request');
 	console.log(req.body);
 	const custom = new Boards();
 	const { author, title, image } = req.body;

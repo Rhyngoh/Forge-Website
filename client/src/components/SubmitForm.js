@@ -50,7 +50,7 @@ function SubmitForm(props) {
 				margin="normal"
 				name="image"
 			/>
-			<Button variant="contained" className={classes.button}>
+			<Button type="submit" variant="contained" className={classes.button}>
 				Submit
 			</Button>
 		</form>

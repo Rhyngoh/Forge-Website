@@ -47,7 +47,6 @@ class AllBoards extends React.Component {
 			title: '',
 			image: ''
 		}
-		// this.submitCustom = this.submitCustom.bind(this);
 	}
 
 	componentDidMount() {
@@ -66,44 +65,29 @@ class AllBoards extends React.Component {
 	}
 
 	onChangeText = (e) => {
-		const newState = { ...this.state };
-		newState[e.target.name] = e.target.value;
-		this.setState(newState);
+		this.setState({[e.target.name]: e.target.value});
 	}
-
-	handleSubmit = (e) => {
-		console.log('SUBMIT');
+	onSubmit = (e) => {
 		e.preventDefault();
-		const { author, title, image} = this.state;
-		console.log(this);
-		if(!author || !title || !image) return;
-		fetch('/api/boards', {
+		const {author, title, image} = e.target;
+		if(!author.value || !title.value || !image.value) return;
+		const data = {
+			"author": author.value,
+			"title": title.value,
+			"image": image.value
+		};
+		console.log(data);
+		fetch('/api/boards/post', {
 			method: 'POST',
 			headers: {'Content-Type': 'application/json'},
-			body: JSON.stringify({author,title,image}),
+			body: JSON.stringify(data),
 		}).then(res => res.json()).then((res) => {
-			if(!res.success) this.setState({ error: res.error.message || res.error });
+			if(!res.success) console.log(res.error.message);
 			else this.setState({ author: '', title: '', image: '', error: null });
 		}).then(()=>{
 			this.getList();
-		});
+		})
 	}
-	// submitCustom(e) {
-	// 	e.preventDefault();
-	// 	const { author, title, image} = this.state;
-	// 	console.log(this);
-	// 	if(!author || !title || !image) return;
-	// 	fetch('/api/boards', {
-	// 		method: 'POST',
-	// 		headers: {'Content-Type': 'application/json'},
-	// 		body: JSON.stringify({author,title,image}),
-	// 	}).then(res => res.json()).then((res) => {
-	// 		if(!res.success) this.setState({ error: res.error.message || res.error });
-	// 		else this.setState({ author: '', title: '', image: '', error: null });
-	// 	}).then(()=>{
-	// 		this.getList();
-	// 	});
-	// }
 
 	render(){
 		const { classes } = this.props;
@@ -116,7 +100,7 @@ class AllBoards extends React.Component {
 					<Grid container spacing={24} className={classes.pieceInfo} alignItems='center' justify='center'>
 						<Grid xs={8} item>
 							<div className="form">
-								<SubmitForm author={this.state.author} title={this.state.title} image={this.state.image} handleChangeText={this.onChangeText} submitCustom={this.handleSubmit}/>
+								<SubmitForm author={this.state.author} title={this.state.title} image={this.state.image} handleChangeText={this.onChangeText} submitCustom={this.onSubmit}/>
 							</div>
 						</Grid>
 						<Grid xs={10} item>
