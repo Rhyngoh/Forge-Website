@@ -10,7 +10,7 @@ import bodyParser from 'body-parser';
 import logger from 'morgan';
 import mongoose from 'mongoose';
 import path from 'path';
-//import config from './secrets';
+import config from './secrets';
 import Boards from './model/BoardSchema';
 
 const app = express();
@@ -19,7 +19,7 @@ const app = express();
 const port = process.env.PORT || 5000;
 
 //config.DB instead of url below
-mongoose.connect('mongodb://admin:77AE28e3!@ds245532.mlab.com:45532/forge').then(
+mongoose.connect(config.DB).then(
 	() => {console.log('Database is connected')}, 
 	err => {console.log('Error connecting to DB' + err)});
 const db = mongoose.connection;
