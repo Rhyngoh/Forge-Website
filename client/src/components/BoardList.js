@@ -6,7 +6,7 @@ import StackGrid from 'react-stack-grid';
 const BoardList = props => (
   <StackGrid columnWidth={300} gutterWidth={10} gutterHeight={10}>
     {props.data.map(custom => (
-      <CustomBoard author={custom.author} title={custom.title} image={custom.image} key={custom._id} id={custom._id} timestamp={custom.updatedAt}>
+      <CustomBoard author={custom.author} title={custom.title} image={custom.image} paste={custom.paste} key={custom._id} id={custom._id} timestamp={custom.updatedAt}>
       </CustomBoard>
       ))}
   </StackGrid>

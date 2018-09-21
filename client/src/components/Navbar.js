@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
-import { AppBar, Toolbar, Typography, Button, IconButton, MenuItem, Drawer } from '@material-ui/core/';
+import { AppBar, Toolbar, Typography, Button, IconButton, MenuItem, Drawer, Divider } from '@material-ui/core/';
 import HomeIcon from '@material-ui/icons/Home';
 import MenuIcon from '@material-ui/icons/Menu';
 import auth from './../utils/Auth';
@@ -67,13 +67,11 @@ class Navbar extends React.Component {
 			right: open
 		})
 	}
+	signOut = () => {
+		auth.signOut();
+		window.location.reload();
+	}
 	render(){
-		const signOut = () => {
-			auth.signOut();
-			// props.history.replace('/');
-		};
-		console.log(this.props);
-		console.log(this.props.history);
 		const { classes } = this.props;
 		const navList = (
 			<div className={classes.list}>
@@ -122,15 +120,16 @@ class Navbar extends React.Component {
 		            	<div tabIndex={0} role="button" onClick={this.toggleDrawer(false)} onKeyDown={this.toggleDrawer(false)}>
 		            		{
 						        !auth.isAuthenticated() &&
-						        <button className="btn btn-dark" onClick={auth.signIn}>Sign In</button>
-						     }
-						     {
+						        <MenuItem onClick={auth.signIn}>Sign In</MenuItem>
+						    }
+						    {
 						        auth.isAuthenticated() &&
 						        <div>
-						            <label className="mr-2 text-white">{auth.getProfile().name}</label>
-						            <button className="btn btn-dark" onClick={() => {signOut()}}>Sign Out</button>
+						            <MenuItem><b>{auth.getProfile().name}</b></MenuItem>
+						            <MenuItem onClick={() => {this.signOut()}}>Sign Out</MenuItem>
 						        </div>
-						      }
+						    }
+						    <Divider/>
 		            		{navList}
 		            	</div>   	
 		            </Drawer>

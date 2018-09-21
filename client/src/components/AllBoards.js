@@ -6,6 +6,7 @@ import preset from 'jss-preset-default';
 import PropTypes from 'prop-types';
 import BoardList from './BoardList';
 import SubmitForm from './SubmitForm';
+import auth from './../utils/Auth';
 
 jss.setup(preset());
 
@@ -43,7 +44,6 @@ class AllBoards extends React.Component {
 		this.state = {
 			data: [],
 			error: null,
-			author: '',
 			title: '',
 			image: ''
 		}
@@ -69,14 +69,20 @@ class AllBoards extends React.Component {
 	}
 	onSubmit = (e) => {
 		e.preventDefault();
-		const {author, title, image} = e.target;
-		if(!author.value || !title.value || !image.value) return;
+		const author = auth.getProfile().name;
+		const {title, image} = e.target;
+		if(!author || !title.value || !image.value) return;
+		let imgpaste = image.value.split(',')[0];
+		console.log(imgpaste);
+		const img64string = 'data:image/gif;base64,' + image.value.split(',')[1];
 		const data = {
-			"author": author.value,
+			"author": author,
 			"title": title.value,
-			"image": image.value
+			"paste": imgpaste,
+			"image": img64string
 		};
 		console.log(data);
+		console.log(JSON.stringify(data));
 		fetch('/api/boards/post', {
 			method: 'POST',
 			headers: {'Content-Type': 'application/json'},
@@ -86,9 +92,8 @@ class AllBoards extends React.Component {
 			else this.setState({ author: '', title: '', image: '', error: null });
 		}).then(()=>{
 			this.getList();
-		})
+		});
 	}
-
 	render(){
 		const { classes } = this.props;
 

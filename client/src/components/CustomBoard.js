@@ -2,18 +2,21 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment';
 import { withStyles } from '@material-ui/core/styles';
-import { Card, CardContent, CardMedia, Typography } from '@material-ui/core/';
+import { Card, CardContent, CardMedia, Typography, CardActions, Button } from '@material-ui/core/';
+import Clipboard from 'react-clipboard.js';
 
 const styles = {
   card: {
     width: 300
   },
   media: {
-    height: 200
+    height: 200,
+    padding: '16px'
   }
 }
-function CustomBoard(props) {
+function CustomBoard(props){
   const { classes } = props;
+  console.log(props);
   return(
   <Card className={classes.card}>
     <CardContent>
@@ -24,7 +27,10 @@ function CustomBoard(props) {
         {props.author} | <span className="time">{moment(props.timestamp).fromNow()}</span>
       </Typography>
     </CardContent>
-    <CardMedia className={classes.media} image="https://picsum.photos/200/200?random" title={props.title}/>
+    <img className={classes.media} src={props.image} title={props.paste}/>
+    <CardActions>
+      <Clipboard data-clipboard-text={props.paste}>Copy to Clipboard</Clipboard>
+    </CardActions>
   </Card>
   )
 }
@@ -41,3 +47,4 @@ CustomBoard.propTypes = {
 export default withStyles(styles)(CustomBoard);
 
 //<CardMedia className={classes.media} image={props.image ? props.image : 'https://picsum.photos?random'} title={props.image}/>
+//<CardMedia className={classes.media} image={props.image} title={props.title}/>

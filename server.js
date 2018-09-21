@@ -40,9 +40,8 @@ const db = mongoose.connection;
 
 // Serve static files from the React app
 app.use(express.static(path.join(__dirname, 'client/build')));
-
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
+app.use(bodyParser.json({limit: '50mb'}));
+app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
 app.use(logger('dev'));
 
 app.get('/', (req, res) => {
@@ -61,21 +60,22 @@ app.get('/api/boards', (req, res) => {
 	});
 });
 
-app.post('/api/boards/post', checkJwt, (req, res) => {
+app.post('/api/boards/post', (req, res) => {
 	console.log('Post Request');
 	console.log(req.body);
 	const custom = new Boards();
 
-	const { title, image } = req.body;
-	if(!title || !image){
+	const { author, title, image, paste } = req.body;
+	if(!author || !title || !image || !paste){
 		return res.json({
 			success: false,
 			error: 'Must provide a Title and Image'
 		});
 	}
-	custom.author = req.user.name;
+	custom.author = author;
 	custom.title = title;
 	custom.image = image;
+	custom.paste = paste;
 	custom.save(err => {
 		if(err) return res.json({ success: false, error: err });
 		return res.json({ success: true });
