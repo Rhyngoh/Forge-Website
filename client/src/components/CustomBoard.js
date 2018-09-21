@@ -27,7 +27,7 @@ function CustomBoard(props){
         {props.author} | <span className="time">{moment(props.timestamp).fromNow()}</span>
       </Typography>
     </CardContent>
-    <img className={classes.media} src={props.image} title={props.paste}/>
+    <img className={classes.media} src={props.image} title={props.title}/>
     <CardActions>
       <Clipboard data-clipboard-text={props.paste}>Copy to Clipboard</Clipboard>
     </CardActions>
