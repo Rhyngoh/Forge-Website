@@ -11,7 +11,9 @@ const styles = {
   },
   media: {
     height: 200,
-    padding: '16px'
+    padding: '16px',
+    display: 'block',
+    margin: 'auto'
   }
 }
 function CustomBoard(props){
