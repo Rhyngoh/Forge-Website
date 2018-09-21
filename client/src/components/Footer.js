@@ -8,7 +8,7 @@ const styles = theme => ({
 		color: 'white',
 		textAlign: 'center',
 		padding: '15px',
-		marginTop: '3rem'
+		marginTop: '3rem',
 	}
 });
 

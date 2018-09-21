@@ -2,15 +2,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
-import IconButton from '@material-ui/core/IconButton';
+import { AppBar, Toolbar, Typography, Button, IconButton, MenuItem, Drawer } from '@material-ui/core/';
 import HomeIcon from '@material-ui/icons/Home';
 import MenuIcon from '@material-ui/icons/Menu';
-import MenuItem from '@material-ui/core/MenuItem';
-import Drawer from '@material-ui/core/Drawer';
+import auth from './../utils/Auth';
 
 const drawerWidth = 240;
 const styles = theme => ({
@@ -73,6 +68,12 @@ class Navbar extends React.Component {
 		})
 	}
 	render(){
+		const signOut = () => {
+			auth.signOut();
+			// props.history.replace('/');
+		};
+		console.log(this.props);
+		console.log(this.props.history);
 		const { classes } = this.props;
 		const navList = (
 			<div className={classes.list}>
@@ -119,6 +120,17 @@ class Navbar extends React.Component {
 		            </IconButton>
 		            <Drawer anchor="right" id="navMenu" open={this.state.right} onClose={this.toggleDrawer(false)}>
 		            	<div tabIndex={0} role="button" onClick={this.toggleDrawer(false)} onKeyDown={this.toggleDrawer(false)}>
+		            		{
+						        !auth.isAuthenticated() &&
+						        <button className="btn btn-dark" onClick={auth.signIn}>Sign In</button>
+						     }
+						     {
+						        auth.isAuthenticated() &&
+						        <div>
+						            <label className="mr-2 text-white">{auth.getProfile().name}</label>
+						            <button className="btn btn-dark" onClick={() => {signOut()}}>Sign Out</button>
+						        </div>
+						      }
 		            		{navList}
 		            	</div>   	
 		            </Drawer>

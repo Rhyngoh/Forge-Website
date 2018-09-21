@@ -12,11 +12,25 @@ import mongoose from 'mongoose';
 import path from 'path';
 //import config from './secrets';
 import Boards from './model/BoardSchema';
+import jwt from 'express-jwt';
+import jwksRsa from 'jwks-rsa';
 
 const app = express();
 // const router = express.Router();
 
 const port = process.env.PORT || 5000;
+
+const checkJwt = jwt({
+	secret: jwksRsa.expressJwtSecret({
+		cache: true,
+		rateLimit: true,
+		jwksRequestsPerMinute: 5,
+		jwksUri: 'https://the-forge.auth0.com/.well-known/jwks.json'
+	}),
+	audience: 'q5ijCAci5eEDCGBWXpMb2Brvf47RhaW2',
+	issuer: 'https://the-forge.auth0.com',
+	algorithms: ['RS256']
+});
 
 //config.DB instead of url below
 mongoose.connect('mongodb://admin:77AE28e3!@ds245532.mlab.com:45532/forge').then(
@@ -47,18 +61,19 @@ app.get('/api/boards', (req, res) => {
 	});
 });
 
-app.post('/api/boards/post', (req, res) => {
+app.post('/api/boards/post', checkJwt, (req, res) => {
 	console.log('Post Request');
 	console.log(req.body);
 	const custom = new Boards();
-	const { author, title, image } = req.body;
-	if(!author || !title || !image){
+
+	const { title, image } = req.body;
+	if(!title || !image){
 		return res.json({
 			success: false,
-			error: 'Must provide an Author, Title, and Image'
+			error: 'Must provide a Title and Image'
 		});
 	}
-	custom.author = author;
+	custom.author = req.user.name;
 	custom.title = title;
 	custom.image = image;
 	custom.save(err => {
