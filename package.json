@@ -28,6 +28,7 @@
     "mongoose": "^5.2.14",
     "morgan": "^1.9.1",
     "nodemon": "^1.18.4",
-    "react-clipboard.js": "^2.0.1"
+    "react-clipboard.js": "^2.0.1",
+    "react-sizeme": "^2.5.2"
   }
 }
