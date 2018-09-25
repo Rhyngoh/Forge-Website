@@ -49,7 +49,7 @@ app.get('/', (req, res) => {
 });
 
 app.get('/api/boards', (req, res) => {
-	Boards.find({}).sort({'createdAt': -1}).limit(20).exec(function(err, board) {
+	Boards.find({}).sort({'createdAt': -1}).exec(function(err, board) {
 		if(err) throw err;
 		var customMap = [];
 		board.forEach(function(custom) {

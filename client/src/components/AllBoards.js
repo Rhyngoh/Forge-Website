@@ -7,6 +7,7 @@ import PropTypes from 'prop-types';
 import BoardList from './BoardList';
 import SubmitForm from './SubmitForm';
 import auth from './../utils/Auth';
+import Paginate from './Paginate';
 
 jss.setup(preset());
 
@@ -36,6 +37,9 @@ const styles = {
 	},
 	pieceNav: {
 		color: 'black'
+	},
+	paginationWrapper: {
+		textAlign: 'center'
 	}
 }
 class AllBoards extends React.Component {
@@ -45,7 +49,8 @@ class AllBoards extends React.Component {
 			data: [],
 			error: null,
 			title: '',
-			image: ''
+			image: '',
+			pageOfItems: []
 		}
 	}
 
@@ -94,9 +99,11 @@ class AllBoards extends React.Component {
 			this.getList();
 		});
 	}
+	onChangePage = (pageOfItems) => {
+		this.setState({ pageOfItems: pageOfItems });
+	}
 	render(){
 		const { classes } = this.props;
-
 		return(
 			<div>
 				<Grid className={classes.root}>
@@ -109,7 +116,10 @@ class AllBoards extends React.Component {
 							</div>
 						</Grid>
 						<Grid xs={10} item>
-							<BoardList data={this.state.data} />
+							<BoardList data={this.state.pageOfItems} />
+						</Grid>
+						<Grid xs={10} item className={classes.paginationWrapper}>
+							<Paginate items={this.state.data} onChangePage={this.onChangePage}/>
 						</Grid>
 						{this.state.error && <p>{this.state.error}</p>}
 					</Grid>
