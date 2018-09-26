@@ -8,7 +8,7 @@ import Clipboard from 'react-clipboard.js';
 const styles = {
   card: {
     width: 300,
-    height: 350
+    height: '100%'
   },
   media: {
     height: 200,
