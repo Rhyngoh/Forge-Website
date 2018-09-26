@@ -19,7 +19,6 @@ const styles = {
 }
 function CustomBoard(props){
   const { classes } = props;
-  console.log(props);
   return(
   <Card className={classes.card}>
     <CardContent>

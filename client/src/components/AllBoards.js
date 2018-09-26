@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, Divider } from '@material-ui/core/';
+import { Grid, Divider, Snackbar } from '@material-ui/core/';
 import { withStyles } from '@material-ui/core/styles';
 import jss from 'jss';
 import preset from 'jss-preset-default';
@@ -8,6 +8,7 @@ import BoardList from './BoardList';
 import SubmitForm from './SubmitForm';
 import auth from './../utils/Auth';
 import Paginate from './Paginate';
+import SnackbarContentWrapper from './SnackbarContentWrapper';
 
 jss.setup(preset());
 
@@ -50,7 +51,9 @@ class AllBoards extends React.Component {
 			error: null,
 			title: '',
 			image: '',
-			pageOfItems: []
+			pageOfItems: [],
+			snackbarOpen: false,
+			snackbarMsg: ''
 		}
 	}
 
@@ -93,14 +96,25 @@ class AllBoards extends React.Component {
 			headers: {'Content-Type': 'application/json'},
 			body: JSON.stringify(data),
 		}).then(res => res.json()).then((res) => {
-			if(!res.success) console.log(res.error.message);
-			else this.setState({ author: '', title: '', image: '', error: null });
+			if(!res.success){
+				console.log(res.error);
+				this.snackHandleOpen(res.error);
+			}else this.setState({ author: '', title: '', image: '', error: null });
 		}).then(()=>{
 			this.getList();
 		});
 	}
 	onChangePage = (pageOfItems) => {
 		this.setState({ pageOfItems: pageOfItems });
+	}
+	snackHandleOpen = (msg) => {
+		this.setState({ snackbarOpen: true, snackbarMsg: msg });
+	}
+	snackHandleClose = (event, reason) => {
+		if(reason === 'clickaway') {
+			return;
+		}
+		this.setState({ snackbarOpen: false });
 	}
 	render(){
 		const { classes } = this.props;
@@ -123,6 +137,9 @@ class AllBoards extends React.Component {
 						</Grid>
 						{this.state.error && <p>{this.state.error}</p>}
 					</Grid>
+					<Snackbar anchorOrigin={{vertical: 'bottom', horizontal: 'left'}} open={this.state.snackbarOpen} autoHideDuration={3000} onClose={this.snackHandleClose}>
+						<SnackbarContentWrapper message={this.state.snackbarMsg}/>
+					</Snackbar>
 				</Grid>
 			</div>
 		);

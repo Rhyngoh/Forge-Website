@@ -64,7 +64,6 @@ app.post('/api/boards/post', (req, res) => {
 	console.log('Post Request');
 	console.log(req.body);
 	const custom = new Boards();
-
 	const { author, title, image, paste } = req.body;
 	if(!author || !title || !image || !paste){
 		return res.json({
@@ -72,13 +71,24 @@ app.post('/api/boards/post', (req, res) => {
 			error: 'Must provide a Title and Image'
 		});
 	}
-	custom.author = author;
-	custom.title = title;
-	custom.image = image;
-	custom.paste = paste;
-	custom.save(err => {
-		if(err) return res.json({ success: false, error: err });
-		return res.json({ success: true });
+	Boards.findOne({
+		'paste': req.body.paste
+	}, function(err, customBoard) {
+		if(customBoard) {
+			return res.json({
+				success: false,
+				error: 'Custom board already exists'
+			});
+		}else{
+			custom.author = author;
+			custom.title = title;
+			custom.image = image;
+			custom.paste = paste;
+			custom.save(err => {
+				if(err) return res.json({ success: false, error: err });
+				return res.json({ success: true });
+			});
+		}
 	});
 });
 
