@@ -4,12 +4,13 @@ html {
   padding: 0;
   overflow-x: hidden;
   background-color: white;
+  color: white;
 }
 body {
   margin: 0;
   padding: 0;
   background-color: #F2EEDD;
-  background-image: linear-gradient(to bottom, #7DE2FC 0%, #ffecd2 100%);
+  background-image: linear-gradient(to bottom, #36384C 0%, #613A43 100%);
   background-repeat: no-repeat;
   font-family: 'Montserrat', sans-serif;
 }
@@ -21,19 +22,20 @@ main {
 }
 h1, h2, h3 {
   font-family: 'Cinzel', serif;
+  color: #a3a3c2;
+  text-shadow: 2px 2px #000;
 }
 h1 {
   font-size: 3rem;
-  color: #a3a3c2;
-  text-shadow: 2px 2px #000;
 }
 h2 {
   font-size: 2rem;
-  color: #a3a3c2;
-  text-shadow: 2px 2px #000;
 }
 h3 {
   font-size: 1.5rem;
+}
+p {
+  color: white;
 }
 .slick-slide {
   height: 80vh;

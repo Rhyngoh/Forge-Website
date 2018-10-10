@@ -7,10 +7,13 @@ import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 const theme = createMuiTheme({
 	palette: {
 		primary: {
-			main: '#333745'
+			main: '#613A43'
 		},
 		secondary: {
-			main: '#C7EFCF'
+			main: '#323339'
+		},
+		submitForm: {
+			main: 'white'
 		}
 	}
 });

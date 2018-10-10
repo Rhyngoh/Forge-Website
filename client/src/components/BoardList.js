@@ -5,9 +5,6 @@ import StackGrid from 'react-stack-grid';
 import sizeMe from 'react-sizeme';
 
 class BoardList extends React.Component { 
-  constructor(props){
-    super(props);
-  }
   render() {
     const {
       size: {

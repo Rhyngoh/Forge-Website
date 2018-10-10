@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment';
 import { withStyles } from '@material-ui/core/styles';
-import { Card, CardContent, CardMedia, Typography, CardActions, Button } from '@material-ui/core/';
+import { Card, CardContent, Typography, CardActions } from '@material-ui/core/';
 import Clipboard from 'react-clipboard.js';
 
 const styles = {
@@ -15,6 +15,9 @@ const styles = {
     padding: '16px',
     display: 'block',
     margin: 'auto'
+  },
+  cardTitle: {
+    textShadow: 'none'
   }
 }
 function CustomBoard(props){
@@ -22,14 +25,14 @@ function CustomBoard(props){
   return(
   <Card className={classes.card}>
     <CardContent>
-      <Typography variant="headline" component="h3">
+      <Typography variant="headline" component="h3" className={classes.cardTitle}>
         {props.title}
       </Typography>
       <Typography color="textSecondary">
         {props.author} | <span className="time">{moment(props.timestamp).fromNow()}</span>
       </Typography>
     </CardContent>
-    <img className={classes.media} src={props.image} title={props.title}/>
+    <img className={classes.media} src={props.image} title={props.title} alt={props.title}/>
     <CardActions>
       <Clipboard data-clipboard-text={props.paste}>Copy to Clipboard</Clipboard>
     </CardActions>

@@ -18,11 +18,16 @@ const styles = theme => ({
 		}
 	},
 	button: {
-		margin: theme.spacing.unit
+		margin: theme.spacing.unit,
+		color: '#a3a3c2',
+		borderColor: '#a3a3c2'
 	},
 	aboutSection: {
 		paddingLeft: '3rem',
 		paddingRight: '3rem'
+	},
+	linkStyle: {
+		color: '#a3a3c2'
 	}
 });
 
@@ -89,7 +94,7 @@ class About extends React.Component {
 				<Grid xs={12} md={5} item>
 					<h3>{this.state.title}</h3>
 					<p dangerouslySetInnerHTML={{ __html: this.state.description }}></p>
-					<Link to={this.state.link}>{this.state.learnMore}</Link>
+					<Link className={classes.linkStyle} to={this.state.link}>{this.state.learnMore}</Link>
 				</Grid>
 			</Grid>
 		)

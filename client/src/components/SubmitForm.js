@@ -1,5 +1,5 @@
 import React from 'react';
-import { TextField, Button } from '@material-ui/core/';
+import { Button, InputLabel, Input, FormControl } from '@material-ui/core/';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import auth from './../utils/Auth';
@@ -13,6 +13,12 @@ const styles = theme => ({
   	marginLeft: theme.spacing.unit,
   	marginRight: theme.spacing.unit,
   },
+  textInput: {
+  	color: 'white'
+  },
+  textLabel: {
+  	color: 'white'
+  },
   button: {
   	height: 0,
   	alignSelf: 'center'
@@ -25,9 +31,6 @@ const styles = theme => ({
 });
 
 class SubmitForm extends React.Component {
-	constructor(props) {
-		super(props);
-	}
 	render(){
 		const { classes } = this.props;
 		const authed = auth.isAuthenticated();
@@ -38,24 +41,46 @@ class SubmitForm extends React.Component {
 			{
 				authed && 
 				<form onSubmit={this.props.submitCustom} className={classes.container} autoComplete="off">
-					<TextField
-						id="form-title"
-						label="Title"
-						className={classes.textField}
-						value={this.props.title}
-						onChange={this.props.handleChangeText}
-						margin="normal"
-						name="title"
-					/>
-					<TextField
-						id="form-image"
-						label="Image URL"
-						className={classes.textField}
-						value={this.props.image}
-						onChange={this.props.handleChangeText}
-						margin="normal"
-						name="image"
-					/>
+					<FormControl className={classes.textField} id="form-title">
+				        <InputLabel
+				          htmlFor="inputTitle"
+				          FormLabelClasses={{
+				            root: classes.textInput,
+				            focused: classes.textInput,
+				          }}
+				        >
+				          Title
+				        </InputLabel>
+				        <Input
+				          id="inputTitle"
+				          classes={{
+				            underline: classes.textInput,
+				          }}
+				          value={this.props.title}
+				          onChange={this.props.handleChangeText}
+				          name="title"
+				        />
+				    </FormControl>
+				    <FormControl className={classes.textField} id="form-image">
+				        <InputLabel
+				          htmlFor="inputImage"
+				          FormLabelClasses={{
+				            root: classes.textInput,
+				            focused: classes.textInput,
+				          }}
+				        >
+				          Image URL
+				        </InputLabel>
+				        <Input
+				          id="inputImage"
+				          classes={{
+				            underline: classes.textInput,
+				          }}
+				          value={this.props.image}
+				          onChange={this.props.handleChangeText}
+				          name="image"
+				        />
+				    </FormControl>
 					<Button type="submit" disabled={!isEnabled} variant="contained" className={classes.button}>
 						Submit
 					</Button>

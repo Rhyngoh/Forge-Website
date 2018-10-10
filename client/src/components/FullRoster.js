@@ -37,7 +37,7 @@ const styles = {
 		padding: '1rem'
 	},
 	pieceNav: {
-		color: 'black'
+		color: '#a3a3c2'
 	}
 }
 class FullRoster extends React.Component {
