@@ -3,7 +3,6 @@ html {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
-  font-family: 'Helvetica', 'Arial', san-serif;
   background-color: white;
 }
 body {
@@ -12,6 +11,7 @@ body {
   background-color: #F2EEDD;
   background-image: linear-gradient(to bottom, #7DE2FC 0%, #ffecd2 100%);
   background-repeat: no-repeat;
+  font-family: 'Montserrat', sans-serif;
 }
 
 main {
@@ -19,7 +19,9 @@ main {
   display: flex;
   flex-direction: column;
 }
-
+h1, h2, h3 {
+  font-family: 'Cinzel', serif;
+}
 h1 {
   font-size: 3rem;
   color: #a3a3c2;
