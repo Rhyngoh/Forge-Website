@@ -6,7 +6,7 @@ import Mode from './Mode';
 import Board from './Board';
 import Callback from './Callback';
 import history from './../utils/history';
-
+import Credits from './Credits';
 
 const Main = () => {
 	return(
@@ -17,6 +17,7 @@ const Main = () => {
 				<Route path='/piece' component={Roster}/>
 				<Route path='/mode' component={Mode}/>
 				<Route path='/boards' component={Board}/>
+				<Route path='/credits' component={Credits}/>
 				<Route exact path='/callback' component={Callback}/>
 			</Switch>
 		</main>

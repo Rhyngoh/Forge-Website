@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { withStyles } from '@material-ui/core/styles';
 import { Grid, Divider } from '@material-ui/core/';
 import forgeIcon from './../images/HiResIcon.jpg';
@@ -7,6 +8,7 @@ import DownloadContainer from './DownloadContainer';
 import Carousel from './Carousel';
 import ScrollAnimation from 'react-animate-on-scroll';
 import About from './About';
+import Credits from './Credits';
 
 const styles = theme => ({
 	root: {
@@ -94,6 +96,11 @@ class Home extends React.Component {
 				<Divider className={classes.divider}/>
 				<Grid sm={12} item>
 					<DownloadContainer />
+				</Grid>
+				<Grid sm={12} item style={{display: 'flex', textAlign: 'center', justifyContent: 'center'}}>
+					<Link to="/credits" >
+						Credits
+					</Link>
 				</Grid>
 			
 			</div>

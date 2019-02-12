@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
-// import appleBadge from './images/apple-play-badge.png';
+import appleBadge from './../images/apple-play-badge.png';
 import googleBadge from './../images/google-play-badge.png';
 
 const styles = theme => ({
@@ -12,9 +12,13 @@ const styles = theme => ({
 		padding: '1rem',
 		flexWrap: 'wrap'
 	},
-	downloadBadge: {
+	appleBadge: {
 		padding: '1rem',
-		maxWidth: '200px'
+		width: '200px'
+	},
+	googleBadge: {
+		padding: '1rem',
+		width: '232px'
 	},
 	downloadContainer: {
 		display: 'flex',
@@ -32,7 +36,10 @@ class DownloadContainer extends React.Component {
 				<p>Currently only available on Android. Development on Apple in progress!</p>
 				<div className={classes.badgeContainer}>
 					<a href="https://play.google.com/store/apps/details?id=com.LozengeLabs.TheForge2" target="_blank" rel="noopener noreferrer">
-						<img className={classes.downloadBadge} src={googleBadge} alt='Google Play Download Badge'/>
+						<img className={classes.googleBadge} src={googleBadge} alt='Google Play Download Badge'/>
+					</a>
+					<a href="https://itunes.apple.com/app/id1451861863" target="_blank" rel="noopener noreferrer">
+						<img className={classes.appleBadge} src={appleBadge} alt='Apple Download Badge'/>
 					</a>
 				</div>
 			</div>
