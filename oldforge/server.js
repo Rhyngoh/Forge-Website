@@ -1,3 +1,10 @@
+// const express = require('express');
+// const bodyParser = require('body-parser');
+// const logger = require('morgan');
+// const mongoose = require('mongoose');
+// const path = require('path');
+// const config = require('./secrets');
+// const Boards = require('./model/BoardSchema');
 import express from 'express';
 import bodyParser from 'body-parser';
 import logger from 'morgan';
